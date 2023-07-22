@@ -6,10 +6,22 @@
 #include "main.h"
 
 /**
+<<<<<<< HEAD
  * _printf - produces output according to a format
  * @format: The specified format
  *
  * Return: The number of characters that were printed
+=======
+<<<<<<< HEAD
+ * _printf -The printf function.
+ * @format: The format
+ * Return: The printed chars
+=======
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars.
+>>>>>>> 7f595fb25f96d9d502fae8326bf4656c2a5bb05a
+>>>>>>> 5f77bad998b05bea756b61c356b1d3916c993891
  */
 int _printf(const char *format, ...)
 {
@@ -25,12 +37,24 @@ int _printf(const char *format, ...)
 	{
 		if (processing_escape)
 		{
+<<<<<<< HEAD
 			tmp = read_format_info(format + i, args, &fmt_info, &last_token);
 			processing_escape = FALSE;
 			set_format_error(format, &i, tmp, last_token, &error);
 			if (is_specifier(fmt_info.spec))
 				write_format(&args, &fmt_info);
 			i += (is_specifier(fmt_info.spec) ? tmp : 0);
+=======
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+<<<<<<< HEAD
+			/***write(1, &format[i], 1);***/
+=======
+			/* write(1, &format[i], 1);*/
+>>>>>>> 7f595fb25f96d9d502fae8326bf4656c2a5bb05a
+			printed_chars++;
+>>>>>>> 5f77bad998b05bea756b61c356b1d3916c993891
 		}
 		else
 		{
@@ -85,11 +109,23 @@ void write_format(va_list *args_list, fmt_info_t *fmt_info)
 }
 
 /**
+<<<<<<< HEAD
  * _putstr - writes the given string to the buffer
  * @str: The string to write
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
+=======
+<<<<<<< HEAD
+ * print_buffer -prints contents of buffer.
+ * @buffer:array of chars,
+ * @buff_ind: index for adding next char.
+=======
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length.
+>>>>>>> 7f595fb25f96d9d502fae8326bf4656c2a5bb05a
+>>>>>>> 5f77bad998b05bea756b61c356b1d3916c993891
  */
 int _putstr(char *str)
 {
@@ -111,7 +147,10 @@ int _putchar(char c)
 {
 	return (write_to_buffer(c, 0));
 }
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
 /**
  * write_to_buffer - Writes a char to the buffer based on an action code
  * @c: The character to write
@@ -157,3 +196,6 @@ int write_to_buffer(char c, char action)
 	}
 	return (out);
 }
+=======
+>>>>>>> 7f595fb25f96d9d502fae8326bf4656c2a5bb05a
+>>>>>>> 5f77bad998b05bea756b61c356b1d3916c993891
